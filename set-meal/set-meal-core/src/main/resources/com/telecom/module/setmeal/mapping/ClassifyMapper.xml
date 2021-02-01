@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.telecom.module.card.core.dao.ClassifyMapper" >
+  <resultMap id="BaseResultMap" type="com.telecom.module.setmeal.core.entity.Classify" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <sql id="Base_Column_List" >
+    id, name
+  </sql>
+<!--
+  <insert id="insert" parameterType="com.telecom.module.setmeal.core.entity.Classify" useGeneratedKeys="true" keyProperty="id" >
+    insert into classify (name)
+    values (#{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.telecom.module.setmeal.core.entity.Classify" useGeneratedKeys="true" keyProperty="id" >
+    insert into classify
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="@Ognl@isNotEmpty(id)" >
+        id,
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="@Ognl@isNotEmpty(id)" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.telecom.module.setmeal.core.entity.ClassifyExample" resultType="java.lang.Integer" >
+    select count(*) from classify
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update classify
+    <set >
+      <if test="@Ognl@isNotEmpty(record.id)" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.name)" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update classify
+    set id = #{record.id,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.telecom.module.setmeal.core.entity.Classify" >
+    update classify
+    <set >
+      <if test="@Ognl@isNotEmpty(name)" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.telecom.module.setmeal.core.entity.Classify" >
+    update classify
+    set name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="getListByCondition" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+     from classify
+    <where >
+      <if test="@Ognl@isNotEmpty(orgs)" >
+         and ${orgs}
+      </if>
+      <if test="@Ognl@isNotEmpty(id)" >
+         and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+    </where>
+    <if test="@Ognl@isNotEmpty(sortColumn)" >
+       order by ${sortColumn} 
+    </if>
+  </select>
+  <select id="countList" resultType="java.lang.Integer" >
+    select count(*) from classify
+    <where >
+      <if test="@Ognl@isNotEmpty(orgs)" >
+         and ${orgs}
+      </if>
+      <if test="@Ognl@isNotEmpty(id)" >
+         and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  -->
+</mapper>

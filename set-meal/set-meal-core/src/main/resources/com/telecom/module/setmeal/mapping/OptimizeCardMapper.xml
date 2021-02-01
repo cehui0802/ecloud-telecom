@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.telecom.module.card.core.dao.OptimizeCardMapper" >
+  <resultMap id="BaseResultMap" type="com.telecom.module.setmeal.core.entity.OptimizeCard" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="CLASSIFY_id" property="classifyId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="constitute" property="constitute" jdbcType="VARCHAR" />
+    <result column="flow" property="flow" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="voice_duration" property="voiceDuration" jdbcType="VARCHAR" />
+    <result column="broad_band" property="broadBand" jdbcType="VARCHAR" />
+    <result column="ITV" property="itv" jdbcType="VARCHAR" />
+    <result column="second_broad_band" property="secondBroadBand" jdbcType="VARCHAR" />
+  </resultMap>
+  <!--
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, CLASSIFY_id, name, constitute, flow, unit, voice_duration, broad_band, ITV, second_broad_band
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCardExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from optimize_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from optimize_card
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from optimize_card
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCardExample" >
+    delete from optimize_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCard" useGeneratedKeys="true" keyProperty="id" >
+    insert into optimize_card (CLASSIFY_id, name, constitute, 
+      flow, unit, voice_duration, 
+      broad_band, ITV, second_broad_band
+      )
+    values (#{classifyId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{constitute,jdbcType=VARCHAR}, 
+      #{flow,jdbcType=INTEGER}, #{unit,jdbcType=VARCHAR}, #{voiceDuration,jdbcType=VARCHAR}, 
+      #{broadBand,jdbcType=VARCHAR}, #{itv,jdbcType=VARCHAR}, #{secondBroadBand,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCard" useGeneratedKeys="true" keyProperty="id" >
+    insert into optimize_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="@Ognl@isNotEmpty(id)" >
+        id,
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+        CLASSIFY_id,
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        name,
+      </if>
+      <if test="@Ognl@isNotEmpty(constitute)" >
+        constitute,
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+        flow,
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+        unit,
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+        voice_duration,
+      </if>
+      <if test="@Ognl@isNotEmpty(broadBand)" >
+        broad_band,
+      </if>
+      <if test="@Ognl@isNotEmpty(itv)" >
+        ITV,
+      </if>
+      <if test="@Ognl@isNotEmpty(secondBroadBand)" >
+        second_broad_band,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="@Ognl@isNotEmpty(id)" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+        #{classifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(constitute)" >
+        #{constitute,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+        #{flow,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+        #{voiceDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(broadBand)" >
+        #{broadBand,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(itv)" >
+        #{itv,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(secondBroadBand)" >
+        #{secondBroadBand,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCardExample" resultType="java.lang.Integer" >
+    select count(*) from optimize_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update optimize_card
+    <set >
+      <if test="@Ognl@isNotEmpty(record.id)" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.classifyId)" >
+        CLASSIFY_id = #{record.classifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.name)" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.constitute)" >
+        constitute = #{record.constitute,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.flow)" >
+        flow = #{record.flow,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.unit)" >
+        unit = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.voiceDuration)" >
+        voice_duration = #{record.voiceDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.broadBand)" >
+        broad_band = #{record.broadBand,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.itv)" >
+        ITV = #{record.itv,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.secondBroadBand)" >
+        second_broad_band = #{record.secondBroadBand,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update optimize_card
+    set id = #{record.id,jdbcType=VARCHAR},
+      CLASSIFY_id = #{record.classifyId,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      constitute = #{record.constitute,jdbcType=VARCHAR},
+      flow = #{record.flow,jdbcType=INTEGER},
+      unit = #{record.unit,jdbcType=VARCHAR},
+      voice_duration = #{record.voiceDuration,jdbcType=VARCHAR},
+      broad_band = #{record.broadBand,jdbcType=VARCHAR},
+      ITV = #{record.itv,jdbcType=VARCHAR},
+      second_broad_band = #{record.secondBroadBand,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCard" >
+    update optimize_card
+    <set >
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+        CLASSIFY_id = #{classifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(constitute)" >
+        constitute = #{constitute,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+        flow = #{flow,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+        voice_duration = #{voiceDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(broadBand)" >
+        broad_band = #{broadBand,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(itv)" >
+        ITV = #{itv,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(secondBroadBand)" >
+        second_broad_band = #{secondBroadBand,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.telecom.module.setmeal.core.entity.OptimizeCard" >
+    update optimize_card
+    set CLASSIFY_id = #{classifyId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      constitute = #{constitute,jdbcType=VARCHAR},
+      flow = #{flow,jdbcType=INTEGER},
+      unit = #{unit,jdbcType=VARCHAR},
+      voice_duration = #{voiceDuration,jdbcType=VARCHAR},
+      broad_band = #{broadBand,jdbcType=VARCHAR},
+      ITV = #{itv,jdbcType=VARCHAR},
+      second_broad_band = #{secondBroadBand,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="getListByCondition" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+     from optimize_card
+    <where >
+      <if test="@Ognl@isNotEmpty(orgs)" >
+         and ${orgs}
+      </if>
+      <if test="@Ognl@isNotEmpty(id)" >
+         and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+         and CLASSIFY_id = #{classifyId,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(constitute)" >
+         and constitute = #{constitute,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+         and flow = #{flow,jdbcType=INTEGER}
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+         and unit = #{unit,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+         and voice_duration = #{voiceDuration,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(broadBand)" >
+         and broad_band = #{broadBand,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(itv)" >
+         and ITV = #{itv,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(secondBroadBand)" >
+         and second_broad_band = #{secondBroadBand,jdbcType=VARCHAR}
+      </if>
+    </where>
+    <if test="@Ognl@isNotEmpty(sortColumn)" >
+       order by ${sortColumn} 
+    </if>
+  </select>
+  <select id="countList" resultType="java.lang.Integer" >
+    select count(*) from optimize_card
+    <where >
+      <if test="@Ognl@isNotEmpty(orgs)" >
+         and ${orgs}
+      </if>
+      <if test="@Ognl@isNotEmpty(id)" >
+         and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+         and CLASSIFY_id = #{classifyId,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(constitute)" >
+         and constitute = #{constitute,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+         and flow = #{flow,jdbcType=INTEGER}
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+         and unit = #{unit,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+         and voice_duration = #{voiceDuration,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(broadBand)" >
+         and broad_band = #{broadBand,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(itv)" >
+         and ITV = #{itv,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(secondBroadBand)" >
+         and second_broad_band = #{secondBroadBand,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  -->
+</mapper>

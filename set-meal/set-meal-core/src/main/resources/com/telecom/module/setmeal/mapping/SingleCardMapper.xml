@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.telecom.module.card.core.dao.SingleCardMapper" >
+  <resultMap id="BaseResultMap" type="com.telecom.module.setmeal.core.entity.SingleCard" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="flow" property="flow" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="voice_duration" property="voiceDuration" jdbcType="VARCHAR" />
+    <result column="Secondary_card" property="secondaryCard" jdbcType="VARCHAR" />
+    <result column="CLASSIFY_id" property="classifyId" jdbcType="VARCHAR" />
+  </resultMap>
+  <!--
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, price, flow, unit, voice_duration, Secondary_card, CLASSIFY_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.telecom.module.setmeal.core.entity.SingleCardExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from single_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from single_card
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from single_card
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.telecom.module.setmeal.core.entity.SingleCardExample" >
+    delete from single_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.telecom.module.setmeal.core.entity.SingleCard" useGeneratedKeys="true" keyProperty="id" >
+    insert into single_card (name, price, flow, 
+      unit, voice_duration, Secondary_card, 
+      CLASSIFY_id)
+    values (#{name,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, #{flow,jdbcType=INTEGER}, 
+      #{unit,jdbcType=VARCHAR}, #{voiceDuration,jdbcType=VARCHAR}, #{secondaryCard,jdbcType=VARCHAR}, 
+      #{classifyId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.telecom.module.setmeal.core.entity.SingleCard" useGeneratedKeys="true" keyProperty="id" >
+    insert into single_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="@Ognl@isNotEmpty(id)" >
+        id,
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        name,
+      </if>
+      <if test="@Ognl@isNotEmpty(price)" >
+        price,
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+        flow,
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+        unit,
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+        voice_duration,
+      </if>
+      <if test="@Ognl@isNotEmpty(secondaryCard)" >
+        Secondary_card,
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+        CLASSIFY_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="@Ognl@isNotEmpty(id)" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(price)" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+        #{flow,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+        #{voiceDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(secondaryCard)" >
+        #{secondaryCard,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+        #{classifyId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.telecom.module.setmeal.core.entity.SingleCardExample" resultType="java.lang.Integer" >
+    select count(*) from single_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update single_card
+    <set >
+      <if test="@Ognl@isNotEmpty(record.id)" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.name)" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.price)" >
+        price = #{record.price,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.flow)" >
+        flow = #{record.flow,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.unit)" >
+        unit = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.voiceDuration)" >
+        voice_duration = #{record.voiceDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.secondaryCard)" >
+        Secondary_card = #{record.secondaryCard,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(record.classifyId)" >
+        CLASSIFY_id = #{record.classifyId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update single_card
+    set id = #{record.id,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=INTEGER},
+      flow = #{record.flow,jdbcType=INTEGER},
+      unit = #{record.unit,jdbcType=VARCHAR},
+      voice_duration = #{record.voiceDuration,jdbcType=VARCHAR},
+      Secondary_card = #{record.secondaryCard,jdbcType=VARCHAR},
+      CLASSIFY_id = #{record.classifyId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.telecom.module.setmeal.core.entity.SingleCard" >
+    update single_card
+    <set >
+      <if test="@Ognl@isNotEmpty(name)" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(price)" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+        flow = #{flow,jdbcType=INTEGER},
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+        voice_duration = #{voiceDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(secondaryCard)" >
+        Secondary_card = #{secondaryCard,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+        CLASSIFY_id = #{classifyId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.telecom.module.setmeal.core.entity.SingleCard" >
+    update single_card
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      flow = #{flow,jdbcType=INTEGER},
+      unit = #{unit,jdbcType=VARCHAR},
+      voice_duration = #{voiceDuration,jdbcType=VARCHAR},
+      Secondary_card = #{secondaryCard,jdbcType=VARCHAR},
+      CLASSIFY_id = #{classifyId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="getListByCondition" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+     from single_card
+    <where >
+      <if test="@Ognl@isNotEmpty(orgs)" >
+         and ${orgs}
+      </if>
+      <if test="@Ognl@isNotEmpty(id)" >
+         and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(price)" >
+         and price = #{price,jdbcType=INTEGER}
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+         and flow = #{flow,jdbcType=INTEGER}
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+         and unit = #{unit,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+         and voice_duration = #{voiceDuration,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(secondaryCard)" >
+         and Secondary_card = #{secondaryCard,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+         and CLASSIFY_id = #{classifyId,jdbcType=VARCHAR}
+      </if>
+    </where>
+    <if test="@Ognl@isNotEmpty(sortColumn)" >
+       order by ${sortColumn} 
+    </if>
+  </select>
+  <select id="countList" resultType="java.lang.Integer" >
+    select count(*) from single_card
+    <where >
+      <if test="@Ognl@isNotEmpty(orgs)" >
+         and ${orgs}
+      </if>
+      <if test="@Ognl@isNotEmpty(id)" >
+         and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(name)" >
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(price)" >
+         and price = #{price,jdbcType=INTEGER}
+      </if>
+      <if test="@Ognl@isNotEmpty(flow)" >
+         and flow = #{flow,jdbcType=INTEGER}
+      </if>
+      <if test="@Ognl@isNotEmpty(unit)" >
+         and unit = #{unit,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(voiceDuration)" >
+         and voice_duration = #{voiceDuration,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(secondaryCard)" >
+         and Secondary_card = #{secondaryCard,jdbcType=VARCHAR}
+      </if>
+      <if test="@Ognl@isNotEmpty(classifyId)" >
+         and CLASSIFY_id = #{classifyId,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  -->
+</mapper>
