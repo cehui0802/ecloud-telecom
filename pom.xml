@@ -19,10 +19,8 @@
         <module>project-service</module>
     </modules>
 
-   
-
     <properties>
-        <module-dependencies.version>0.1-SNAPSHOT</module-dependencies.version>
+        <module-dependencies.version>0.1-SNAPSHOT</module-dependencies.version>  
         <goffice.common.version>0.1-SNAPSHOT</goffice.common.version>
     </properties>
 
@@ -99,21 +97,11 @@
                 <version>${ecloud-main.version}</version>
             </dependency>
 
-
-
-
-
-
-
             <dependency>
                 <groupId>com.telecom</groupId>
                 <artifactId>ecloud-goffice-common</artifactId>
                 <version>${goffice.common.version}</version>
             </dependency>
-
-
-
-
 
 
             <!--            esay-poi-->
