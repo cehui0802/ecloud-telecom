@@ -17,5 +17,9 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.telecom</groupId>
+            <artifactId>ecloud-goffice-common</artifactId>
+        </dependency>
     </dependencies>
 </project>
